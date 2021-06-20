@@ -39,8 +39,8 @@
     //批量下载
     function batchDownload() {
         //最大化图片尺寸
-        currentHeight = 9999;
-        currentWidth = 9999;
+        //currentHeight = 9999;
+        //currentWidth = 9999;
         pageTotal = document.getElementById("TotalCount").innerText;
         for (pageCurrent = 1; pageCurrent <= pageTotal; pageCurrent++) {
             downloadPic(pageCurrent);
@@ -51,5 +51,19 @@
     downloadBtn.innerText = "批量下载全书";
     downloadBtn.onclick = function () { batchDownload() }
     document.querySelector("body > div.page > div.header > ul").appendChild(downloadBtn);
+    //下载单页面
+    var downloadPageBtn = document.createElement("a");
+    var downloadPageInput = document.createElement("input");
+    downloadPageInput.setAttribute('id', 'pageNum');
+    downloadPageInput.setAttribute('style', 'width: 30px; height: 14px; line-height: 14px;');
+    downloadPageBtn.innerText = "下载单页面";
+    downloadPageBtn.onclick = function () {
+        //currentHeight = 9999;
+        //currentWidth = 9999;
+        var pageNum = document.getElementById("pageNum").value;
+        downloadPic(pageNum);
+    };
+    document.querySelector("body > div.page > div.header > ul").appendChild(downloadPageBtn);
+    document.querySelector("body > div.page > div.header > ul").appendChild(downloadPageInput);
 
 })();
