@@ -29,7 +29,7 @@
         fetch(picUrl).then(res => res.blob().then(blob => {
             var a = document.createElement('a');
             var url = window.URL.createObjectURL(blob);
-            var filename = page + '.jpg';
+            var filename = page + '.png';
             a.href = url;
             a.download = filename;
             a.click();
